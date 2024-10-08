@@ -1,0 +1,15 @@
+{
+  "originHash" : "ed231460de0cf6669f4311e0d526c167d8b7a74f00d5cc58cc4c67e27b668d92",
+  "pins" : [
+    {
+      "identity" : "cm-sdk-xcframework-v3",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/iubenda/cm-sdk-xcframework-v3",
+      "state" : {
+        "revision" : "4710dd99f4bbce0c907cf0a751bb48459afe7d64",
+        "version" : "0.2.1-alpha"
+      }
+    }
+  ],
+  "version" : 3
+}
