@@ -9,17 +9,51 @@
 /* Begin PBXBuildFile section */
 		5954796E2CB51F86008694C2 /* README.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5954796D2CB51F7E008694C2 /* README.swift */; };
 		59B023022CB45525002E7528 /* cm-sdk-ios-v3 in Frameworks */ = {isa = PBXBuildFile; productRef = 59B023012CB45525002E7528 /* cm-sdk-ios-v3 */; };
+		59F8F5332D648A4C0047BD3C /* CMPSDKDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8F52E2D648A4C0047BD3C /* CMPSDKDemoApp.swift */; };
+		59F8F5362D648A4C0047BD3C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8F5312D648A4C0047BD3C /* HomeView.swift */; };
+		59F8F5552D64922D0047BD3C /* ConsentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8F5542D64922D0047BD3C /* ConsentManager.swift */; };
+		59F8F5592D64925E0047BD3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8F5582D64925E0047BD3C /* ContentView.swift */; };
+		59F8F55B2D64939B0047BD3C /* ConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8F55A2D64939B0047BD3C /* ConsentView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		59B3FD2A2D3E4D1B006B9CCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59B022DF2CB454DE002E7528 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59B022E62CB454DE002E7528;
+			remoteInfo = CMPSDKDemoApp;
+		};
+		59F7689D2D3ECF5300002E3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59B022DF2CB454DE002E7528 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59B022E62CB454DE002E7528;
+			remoteInfo = CMPSDKDemoApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5954796D2CB51F7E008694C2 /* README.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README.swift; sourceTree = "<group>"; };
 		59B022E72CB454DE002E7528 /* CMPSDKDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMPSDKDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59B3FD242D3E4D1B006B9CCB /* CMPSDKDemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMPSDKDemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59F768972D3ECF5300002E3C /* browserstack.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = browserstack.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59F8F52E2D648A4C0047BD3C /* CMPSDKDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPSDKDemoApp.swift; sourceTree = "<group>"; };
+		59F8F5312D648A4C0047BD3C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		59F8F5542D64922D0047BD3C /* ConsentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentManager.swift; sourceTree = "<group>"; };
+		59F8F5582D64925E0047BD3C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		59F8F55A2D64939B0047BD3C /* ConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		59B022E92CB454DE002E7528 /* CMPSDKDemoApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CMPSDKDemoApp;
+			sourceTree = "<group>";
+		};
+		59B3FD252D3E4D1B006B9CCB /* CMPSDKDemoAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CMPSDKDemoAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -33,14 +67,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		59B3FD212D3E4D1B006B9CCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59F768942D3ECF5300002E3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		59B022DE2CB454DE002E7528 = {
 			isa = PBXGroup;
 			children = (
+				59F8F55A2D64939B0047BD3C /* ConsentView.swift */,
+				59F8F52E2D648A4C0047BD3C /* CMPSDKDemoApp.swift */,
+				59F8F5582D64925E0047BD3C /* ContentView.swift */,
+				59F8F5542D64922D0047BD3C /* ConsentManager.swift */,
+				59F8F5312D648A4C0047BD3C /* HomeView.swift */,
 				5954796D2CB51F7E008694C2 /* README.swift */,
 				59B022E92CB454DE002E7528 /* CMPSDKDemoApp */,
+				59B3FD252D3E4D1B006B9CCB /* CMPSDKDemoAppUITests */,
 				59B022E82CB454DE002E7528 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				59B022E72CB454DE002E7528 /* CMPSDKDemoApp.app */,
+				59B3FD242D3E4D1B006B9CCB /* CMPSDKDemoAppUITests.xctest */,
+				59F768972D3ECF5300002E3C /* browserstack.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +135,49 @@
 			productReference = 59B022E72CB454DE002E7528 /* CMPSDKDemoApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		59B3FD232D3E4D1B006B9CCB /* CMPSDKDemoAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59B3FD2C2D3E4D1B006B9CCB /* Build configuration list for PBXNativeTarget "CMPSDKDemoAppUITests" */;
+			buildPhases = (
+				59B3FD202D3E4D1B006B9CCB /* Sources */,
+				59B3FD212D3E4D1B006B9CCB /* Frameworks */,
+				59B3FD222D3E4D1B006B9CCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59B3FD2B2D3E4D1B006B9CCB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				59B3FD252D3E4D1B006B9CCB /* CMPSDKDemoAppUITests */,
+			);
+			name = CMPSDKDemoAppUITests;
+			packageProductDependencies = (
+			);
+			productName = CMPSDKDemoAppUITests;
+			productReference = 59B3FD242D3E4D1B006B9CCB /* CMPSDKDemoAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		59F768962D3ECF5300002E3C /* browserstack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59F768A12D3ECF5300002E3C /* Build configuration list for PBXNativeTarget "browserstack" */;
+			buildPhases = (
+				59F768932D3ECF5300002E3C /* Sources */,
+				59F768942D3ECF5300002E3C /* Frameworks */,
+				59F768952D3ECF5300002E3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59F7689E2D3ECF5300002E3C /* PBXTargetDependency */,
+			);
+			name = browserstack;
+			packageProductDependencies = (
+			);
+			productName = browserstack;
+			productReference = 59F768972D3ECF5300002E3C /* browserstack.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -86,11 +185,19 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					59B022E62CB454DE002E7528 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					59B3FD232D3E4D1B006B9CCB = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 59B022E62CB454DE002E7528;
+					};
+					59F768962D3ECF5300002E3C = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 59B022E62CB454DE002E7528;
 					};
 				};
 			};
@@ -112,12 +219,28 @@
 			projectRoot = "";
 			targets = (
 				59B022E62CB454DE002E7528 /* CMPSDKDemoApp */,
+				59B3FD232D3E4D1B006B9CCB /* CMPSDKDemoAppUITests */,
+				59F768962D3ECF5300002E3C /* browserstack */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		59B022E52CB454DE002E7528 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59B3FD222D3E4D1B006B9CCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59F768952D3ECF5300002E3C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -131,11 +254,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59F8F5332D648A4C0047BD3C /* CMPSDKDemoApp.swift in Sources */,
+				59F8F5362D648A4C0047BD3C /* HomeView.swift in Sources */,
+				59F8F5592D64925E0047BD3C /* ContentView.swift in Sources */,
+				59F8F5552D64922D0047BD3C /* ConsentManager.swift in Sources */,
 				5954796E2CB51F86008694C2 /* README.swift in Sources */,
+				59F8F55B2D64939B0047BD3C /* ConsentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59B3FD202D3E4D1B006B9CCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59F768932D3ECF5300002E3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59B3FD2B2D3E4D1B006B9CCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59B022E62CB454DE002E7528 /* CMPSDKDemoApp */;
+			targetProxy = 59B3FD2A2D3E4D1B006B9CCB /* PBXContainerItemProxy */;
+		};
+		59F7689E2D3ECF5300002E3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59B022E62CB454DE002E7528 /* CMPSDKDemoApp */;
+			targetProxy = 59F7689D2D3ECF5300002E3C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		59B022F32CB454DF002E7528 /* Debug */ = {
@@ -190,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -247,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -274,6 +429,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +460,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,6 +472,78 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		59B3FD2D2D3E4D1B006B9CCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRBMPFWU27;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.consentmanager.CMPSDKDemoAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CMPSDKDemoApp;
+			};
+			name = Debug;
+		};
+		59B3FD2E2D3E4D1B006B9CCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRBMPFWU27;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.consentmanager.CMPSDKDemoAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CMPSDKDemoApp;
+			};
+			name = Release;
+		};
+		59F7689F2D3ECF5300002E3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRBMPFWU27;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.consentmanager.browserstack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CMPSDKDemoApp;
+			};
+			name = Debug;
+		};
+		59F768A02D3ECF5300002E3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRBMPFWU27;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.consentmanager.browserstack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CMPSDKDemoApp;
 			};
 			name = Release;
 		};
@@ -339,6 +568,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		59B3FD2C2D3E4D1B006B9CCB /* Build configuration list for PBXNativeTarget "CMPSDKDemoAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59B3FD2D2D3E4D1B006B9CCB /* Debug */,
+				59B3FD2E2D3E4D1B006B9CCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59F768A12D3ECF5300002E3C /* Build configuration list for PBXNativeTarget "browserstack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59F7689F2D3ECF5300002E3C /* Debug */,
+				59F768A02D3ECF5300002E3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -346,8 +593,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/iubenda/cm-sdk-xcframework-v3";
 			requirement = {
-				kind = exactVersion;
-				version = "0.2.1-alpha";
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

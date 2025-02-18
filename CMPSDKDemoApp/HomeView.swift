@@ -11,6 +11,7 @@ import cm_sdk_ios_v3
 struct HomeView: View {
     @State private var toastMessage: String?
     @State private var showingToast = false
+    @State private var isDarkMode = false
 
     var body: some View {
         NavigationView {
@@ -22,20 +23,38 @@ struct HomeView: View {
                             .padding()
 
                         Button(action: {
-                            let hasConsent = CMPManager.shared.hasUserChoice()
-                            showToast(message: "Has User Choice: \(hasConsent)")
+                            let status = CMPManager.shared.getUserStatus()
+                            var message = "Status: \(status.status)\n\n"
+                            
+                            message += "Vendors:\n"
+                            for (vendorId, state) in status.vendors {
+                                message += "- \(vendorId): \(state)\n"
+                            }
+                            
+                            message += "\nPurposes:\n"
+                            for (purposeId, state) in status.purposes {
+                                message += "- \(purposeId): \(state)\n"
+                            }
+                            
+                            message += "\nTCF: \(status.tcf)\n"
+                            message += "Additional Consent: \(status.addtlConsent)\n"
+                            message += "Regulation: \(status.regulation)"
+
+                            print(message)
+                            showToast(message: "Check logs for the User Status")
                         }) {
-                            Text("Has User Choice?")
+                            Text("Get User Status")
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Color.blue)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
-                                .accessibilityIdentifier("Has User Choice?")
+                                .accessibilityIdentifier("Get User Status")
                         }
 
                         Button(action: {
                             let cmpString = CMPManager.shared.exportCMPInfo()
+                            print("Exported CMP String: \(cmpString)")
                             showToast(message: "CMP String: \(cmpString)")
                         }) {
                             Text("Get CMP String")
@@ -48,56 +67,24 @@ struct HomeView: View {
                         }
 
                         Button(action: {
-                            let allPurposes = CMPManager.shared.getAllPurposesIDs()
-                            showToast(message: "All Purposes: \(allPurposes)")
+                            let purposeStatus = CMPManager.shared.getStatusForPurpose(id: "c53")
+                            var message = "Purpose c53 status: "
+                            switch purposeStatus {
+                            case .choiceDoesntExist: message += "No Choice"
+                            case .granted: message += "Granted"
+                            case .denied: message += "Denied"
+                            @unknown default:
+                                message += "No Choice"
+                            }
+                            showToast(message: message)
                         }) {
-                            Text("Get All Purposes")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.mint)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                            .accessibilityIdentifier("Get All Purposes")
-                        }
-
-                        Button(action: {
-                            let hasPurpose = CMPManager.shared.hasPurposeConsent(id: "c53")
-                            showToast(message: "Has Purpose: \(hasPurpose)")
-                        }) {
-                            Text("Has Purpose ID c53?")
+                            Text("Status for Purpose c53")
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Color.mint)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                             .accessibilityIdentifier("Has Purpose ID c53?")
-                        }
-
-                        Button(action: {
-                            let enabledPurposes = CMPManager.shared.getEnabledPurposesIDs()
-                            showToast(message: "Enabled Purposes: \(enabledPurposes)")
-                        }) {
-                            Text("Get Enabled Purposes")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.mint)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .accessibilityIdentifier("Get Enabled Purposes")
-
-                        }
-
-                        Button(action: {
-                            let disabledPurposes = CMPManager.shared.getDisabledPurposesIDs()
-                            showToast(message: "Disabled Purposes: \(disabledPurposes.joined(separator: ", "))")
-                        }) {
-                            Text("Get Disabled Purposes")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.gray)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .accessibilityIdentifier("Get Disabled Purposes")
                         }
 
                         Button(action: {
@@ -137,55 +124,23 @@ struct HomeView: View {
                         }
 
                         Button(action: {
-                            let allVendors = CMPManager.shared.getAllVendorsIDs()
-                            showToast(message: "All Vendors: \(allVendors)")
+                            let vendorStatus = CMPManager.shared.getStatusForVendor(id: "s2789")
+                            var message = "Vendor s2789 status: "
+                            switch vendorStatus {
+                            case .choiceDoesntExist: message += "No choice"
+                            case .denied: message += "Denied"
+                            case .granted: message += "Granted"
+                            @unknown default: message += "No choice"
+                            }
+                            showToast(message: message)
                         }) {
-                            Text("Get All Vendors")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.cyan)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .accessibilityIdentifier("Get All Vendors")
-                        }
-
-                        Button(action: {
-                            let hasVendor = CMPManager.shared.hasVendorConsent(id: "s2789")
-                            showToast(message: "Has Vendor: \(hasVendor)")
-                        }) {
-                            Text("Has Vendor ID s2789?")
+                            Text("Status for Vendor ID s2789")
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Color.cyan)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                                 .accessibilityIdentifier("Has Vendor ID s2789?")
-                        }
-
-                        Button(action: {
-                            let enabledVendors = CMPManager.shared.getEnabledVendorsIDs()
-                            showToast(message: "Enabled Vendors: \(enabledVendors)")
-                        }) {
-                            Text("Get Enabled Vendors")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.cyan)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .accessibilityIdentifier("Get Enabled Vendors")
-                        }
-
-                        Button(action: {
-                            let disabledVendors = CMPManager.shared.getDisabledVendorsIDs()
-                            showToast(message: "Disabled Vendors: \(disabledVendors.joined(separator: ", "))")
-                        }) {
-                            Text("Get Disabled Vendors")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.gray)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .accessibilityIdentifier("Get Disabled Vendors")
                         }
                         
                         Button(action: {
@@ -261,7 +216,7 @@ struct HomeView: View {
                         }
 
                         Button(action: {
-                            CMPManager.shared.checkWithServerAndOpenIfNecessary(){ error in
+                            CMPManager.shared.checkAndOpen(){ error in
                                 if let error = error {
                                     print("Check and Open Consent Layer operation failed with error \(error)")
                                 } else {
@@ -279,25 +234,11 @@ struct HomeView: View {
                         }
 
                         Button(action: {
-                            CMPManager.shared.checkIfConsentIsRequired() { needsConsent in
-                                showToast(message: "Needs Consent: \(needsConsent)")
-                            }
-                        }) {
-                            Text("Check Consent Required")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.indigo)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .accessibilityIdentifier("Check Consent Required")
-                        }
-
-                        Button(action: {
-                            CMPManager.shared.openConsentLayer(){ error in
+                            CMPManager.shared.forceOpen(){ error in
                                 if let error = error {
-                                    print("Open Consent Layer operation failed with error \(error)")
+                                    print("HomeView: Open Consent Layer operation failed with error \(error)")
                                 } else {
-                                    print("Consent Layer opened succesfully in the DemoApp.")
+                                    print("HomeView: Consent Layer opened succesfully in the DemoApp.")
                                 }
                             }
                         }) {
@@ -311,7 +252,35 @@ struct HomeView: View {
                         }
 
                         Button(action: {
-                            CMPManager.shared.importCMPInfo("Q1FERkg3QVFERkg3QUFmR01CSVRCQkVnQUFBQUFBQUFBQWlnQUFBQUFBQUEjXzUxXzUyXzUzXzU0XzU1XzU2XyNfczI3ODlfczI3OTBfczI3OTFfczI2OTdfczk3MV9VXyMxLS0tIw"){ error in
+                            showToast(message: "Google Consent Mode Status: \n \(CMPManager.shared.getGoogleConsentModeStatus())")
+                        }) { Text("Get Google Consent Mode")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.indigo)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                .accessibilityIdentifier( "Get Google Consent Mode")
+                        }
+                        
+                        Button(action: {
+                            CMPManager.shared.forceOpen(jumpToSettings: true){ error in
+                                if let error = error {
+                                    showToast(message: "Error: \(error.localizedDescription)")
+                                } else {
+                                    showToast(message: "Opening CMP Settings")
+                                }
+                            }
+                        }) {
+                            Text("Jump to CMP Settings")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.indigo)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        
+                        Button(action: {
+                            CMPManager.shared.importCMPInfo("Q1FMVW10Z1FMVW10Z0FmUTVDSVRCWUZnQUFBQUFBQUFBQWlnS3dOWF9HX19iWGx2LVg3MzZmdGtlWTFmOTloNzdzUXhCaGZKcy00RnpMdldfSndYMzJFek5FMzZ0cVlLbVJJQXUzVEJJUU50R0pqVVJWQ2hhb2dWcnpEc2FFeVVvVHRLSi1Ca2lITVJZMmRZQ0Z4dm00dGplUUNaNXZyXzkxZDUyUl90N2RyLTNkenl5NWhudjNhOV8tUzFXSmlkSzUtdEhfdjliUk9iLV9JLTlfeC1fNHY0X05fcEUyX2VUMXRfdFd2dDczOS04dHZfOV9fOTlfX19fZl9fX19fXzNfLV9mX19mX19fOEZYd0NURFFxSUF5d0pDUWcwRENDQkFDb0t3Z0lvRUFRQUFKQTBRRUFKZ3dLZGdZQUxyQ1JBQ0FGQUFNRUFJQUFRWkFBZ0FBQWdBUWlBQ0FBb0VBQUVBZ1VBQVlBRUF3RUFCQXdBQWdBc0JBSUFBUUhRTVV3SUlCQXNBRWpNaW9Vd0lRZ0VnZ0piS2hCSUFnUVZ3aENMUEFJZ0VSTUZBQUFBQUFVZ0FDQXNGZ2NTU0FsUWtFQVhFRzBBQUJBQWdFRUFCUWdrNU1BQVFCbXkxQjRNRzBaV21BWVBtQ1JEVEFNZ0NJSXlFZzBBQUEjXzUxXzUyXzUzXzU0XzU1XzU2XyNfczI4MTVfYzY0MDQzX3MyODE0X3MyNzYyX3MyODg1X3MyODE5X3MyODQ2X3MzMDM1X3MyNDM0X1VfIzEtLS0j"){ error in
                                 if let error = error {
                                     showToast(message: "Error: \(error.localizedDescription)")
                                 } else {
@@ -340,10 +309,22 @@ struct HomeView: View {
                             Text("Reset all CMP Info")
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Color.gray)
+                                .background(Color.black)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                                 .accessibilityIdentifier("Reset all CMP Info")
+                        }
+                        
+                        Button(action: {
+                            retrieveUserPreferences()
+                        }) {
+                            Text("Get CMP Preferences")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.gray)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                .accessibilityIdentifier("Get CMP Preferences")
                         }
                         
                         if #available(iOS 14, *) {
@@ -367,6 +348,21 @@ struct HomeView: View {
                 .toast(message: toastMessage ?? "", isShowing: $showingToast, duration: 2.0)
             }
         }
+    }
+    
+    private func retrieveUserPreferences() {
+        let userDefaults = UserDefaults.standard
+        let allKeys = userDefaults.dictionaryRepresentation().keys
+
+        print("=================")
+        print("User Preferences:")
+        for key in allKeys {
+            if let value = userDefaults.object(forKey: key) {
+                print("\(key): \(value)")
+            }
+        }
+
+        showToast(message: "Check the logs for the key/values from User Preferences")
     }
 
     private func showToast(message: String) {
