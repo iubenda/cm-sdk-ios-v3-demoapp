@@ -593,8 +593,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/iubenda/cm-sdk-xcframework-v3";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 3.1.0;
+				kind = exactVersion;
+				version = 3.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

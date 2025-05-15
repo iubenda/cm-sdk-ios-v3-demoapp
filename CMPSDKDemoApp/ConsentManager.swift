@@ -31,7 +31,7 @@ class ConsentManager: NSObject, CMPManagerDelegate {
         )
         
         cmpManager.setUrlConfig(UrlConfig(
-            id: "26cba6cf81e76",
+            id: "YOUR-CODE-ID-GOES-HERE",
             domain: "delivery.consentmanager.net",
             language: "IT",
             appName: "CMPDemoApp"

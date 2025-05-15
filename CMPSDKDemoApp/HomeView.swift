@@ -325,23 +325,7 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                                 .accessibilityIdentifier("Get CMP Preferences")
-                        }
-                        
-                        if #available(iOS 14, *) {
-                            Button(action: {
-                                CMPManager.shared.requestATTAuthorization { status in
-                                    showATTStatusToast(status)
-                                }
-                            }) {
-                                Text("Request ATT Authorization")
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                                    .background(Color.purple)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                                    .accessibilityIdentifier("Request ATT Authorization")
-                            }
-                        }
+                        }                        
                     }
                 }
                 .padding()
