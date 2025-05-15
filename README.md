@@ -2,5 +2,5 @@ Demo App developed by consentmanager AB to showcase the methods available throug
 
 Our mobile SDK is a comprehensive Consent Management Platform (CMP) SDK for iOS Native developed applications. It provides easy-to-use APIs for handling user consent in compliance with various privacy regulations.
 
-For further information, please refer to [our documentation](https://help.consentmanager.net/books/cmp/page/integrating-the-sdk-v3-into-your-mobile-app](https://help.consentmanager.net/books/cmp/chapter/integration-into-your-app---v3)
+For further information, please refer to [our documentation](https://help.consentmanager.net/books/cmp/chapter/integration-into-your-app---v3)
 
