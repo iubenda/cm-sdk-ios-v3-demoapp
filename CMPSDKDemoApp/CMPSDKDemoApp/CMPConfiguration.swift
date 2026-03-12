@@ -108,7 +108,7 @@ enum WebviewPosition: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
-    func toSDKPosition() -> ConsentLayerUIConfig.Position {
+    func toSDKPosition() -> Position {
         switch self {
         case .fullScreen:
             return .fullScreen
@@ -131,7 +131,7 @@ enum WebviewBackgroundStyle: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
-    func toSDKBackgroundStyle() -> ConsentLayerUIConfig.BackgroundStyle {
+    func toSDKBackgroundStyle() -> BackgroundStyle {
         switch self {
         case .blurProminent: return .blur(.prominent)
         case .dimmedBlack: return .dimmed(.black, 0.5)

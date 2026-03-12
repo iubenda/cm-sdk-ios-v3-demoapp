@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppTrackingTransparency
 import cm_sdk_ios_v3
 
 struct HomeView: View {
@@ -373,7 +374,7 @@ struct HomeView: View {
     }
     
     @available(iOS 14, *)
-    private func showATTStatusToast(_ status: ATTManager.AuthorizationStatus) {
+    private func showATTStatusToast(_ status: ATTrackingManager.AuthorizationStatus) {
         let message: String
         switch status {
         case .notDetermined:
