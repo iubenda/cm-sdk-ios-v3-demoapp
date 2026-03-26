@@ -594,7 +594,7 @@
 			repositoryURL = "https://github.com/iubenda/cm-sdk-xcframework-v3";
 			requirement = {
 				kind = exactVersion;
-				version = 3.2.0;
+				version = 3.9.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

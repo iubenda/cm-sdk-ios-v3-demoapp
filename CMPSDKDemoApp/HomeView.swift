@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppTrackingTransparency
 import cm_sdk_ios_v3
 
 struct HomeView: View {
@@ -40,7 +41,9 @@ struct HomeView: View {
                             message += "Additional Consent: \(status.addtlConsent)\n"
                             message += "Regulation: \(status.regulation)"
 
+                            #if DEBUG
                             print(message)
+                            #endif
                             showToast(message: "Check logs for the User Status")
                         }) {
                             Text("Get User Status")
@@ -54,8 +57,11 @@ struct HomeView: View {
 
                         Button(action: {
                             let cmpString = CMPManager.shared.exportCMPInfo()
+                            #if DEBUG
                             print("Exported CMP String: \(cmpString)")
-                            showToast(message: "CMP String: \(cmpString)")
+                            #endif
+                            let display = cmpString.count > 50 ? String(cmpString.prefix(50)) + "…" : cmpString
+                            showToast(message: "CMP String: \(display)")
                         }) {
                             Text("Get CMP String")
                                 .frame(maxWidth: .infinity)
@@ -218,9 +224,13 @@ struct HomeView: View {
                         Button(action: {
                             CMPManager.shared.checkAndOpen(){ error in
                                 if let error = error {
-                                    print("Check and Open Consent Layer operation failed with error \(error)")
+                                    #if DEBUG
+                                print("Check and Open Consent Layer operation failed with error \(error)")
+                                #endif
                                 } else {
-                                    print("Check and Open Consent Layer operation done succesfully in the DemoApp.")
+                                    #if DEBUG
+                                print("Check and Open Consent Layer operation done succesfully in the DemoApp.")
+                                #endif
                                 }
                             }
                         }) {
@@ -236,9 +246,13 @@ struct HomeView: View {
                         Button(action: {
                             CMPManager.shared.forceOpen(){ error in
                                 if let error = error {
-                                    print("HomeView: Open Consent Layer operation failed with error \(error)")
+                                    #if DEBUG
+                                print("HomeView: Open Consent Layer operation failed with error \(error)")
+                                #endif
                                 } else {
+                                    #if DEBUG
                                     print("HomeView: Consent Layer opened succesfully in the DemoApp.")
+                                    #endif
                                 }
                             }
                         }) {
@@ -259,7 +273,7 @@ struct HomeView: View {
                                 .background(Color.indigo)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
-                                .accessibilityIdentifier( "Get Google Consent Mode")
+                                .accessibilityIdentifier("Get Google Consent Mode")
                         }
                         
                         Button(action: {
@@ -277,6 +291,7 @@ struct HomeView: View {
                                 .background(Color.indigo)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
+                                .accessibilityIdentifier("Jump to CMP Settings")
                         }
                         
                         Button(action: {
@@ -335,9 +350,9 @@ struct HomeView: View {
     }
     
     private func retrieveUserPreferences() {
+        #if DEBUG
         let userDefaults = UserDefaults.standard
         let allKeys = userDefaults.dictionaryRepresentation().keys
-
         print("=================")
         print("User Preferences:")
         for key in allKeys {
@@ -345,7 +360,7 @@ struct HomeView: View {
                 print("\(key): \(value)")
             }
         }
-
+        #endif
         showToast(message: "Check the logs for the key/values from User Preferences")
     }
 
@@ -359,7 +374,7 @@ struct HomeView: View {
     }
     
     @available(iOS 14, *)
-    private func showATTStatusToast(_ status: ATTManager.AuthorizationStatus) {
+    private func showATTStatusToast(_ status: ATTrackingManager.AuthorizationStatus) {
         let message: String
         switch status {
         case .notDetermined:

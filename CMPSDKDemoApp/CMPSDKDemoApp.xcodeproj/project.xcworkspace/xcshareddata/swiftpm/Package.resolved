@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/iubenda/cm-sdk-xcframework-v3",
       "state" : {
-        "revision" : "618da397fec612b1a5fcebbd95d45f7a46cd7231",
-        "version" : "3.2.0"
+        "revision" : "bdef67f351861e10c6db68c1ce2d66c87d7d76ab",
+        "version" : "3.9.0"
       }
     }
   ],

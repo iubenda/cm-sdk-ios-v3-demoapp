@@ -15,29 +15,19 @@ class ConsentManager: NSObject, CMPManagerDelegate {
     
     private override init() {
         super.init()
-        setupCMPManager()
+        // Defer full setup until configure(with:) is called
+        CMPManager.shared.delegate = self
     }
     
-    private func setupCMPManager() {
+    /// Applies dynamic configuration and prepares the CMP SDK.
+    func configure(with config: CMPConfiguration) {
+        guard config.isValid else {
+            assertionFailure("Invalid CMPConfiguration passed to configure")
+            return
+        }
         let cmpManager = CMPManager.shared
-        cmpManager.delegate = self
-        
-        let webViewConfig = ConsentLayerUIConfig(
-            position: .fullScreen,
-            backgroundStyle: .blur(.prominent),
-            cornerRadius: 0,
-            respectsSafeArea: false,
-            allowsOrientationChanges: true
-        )
-        
-        cmpManager.setUrlConfig(UrlConfig(
-            id: "YOUR-CODE-ID-GOES-HERE",
-            domain: "delivery.consentmanager.net",
-            language: "IT",
-            appName: "CMPDemoApp"
-        ))
-        
-        cmpManager.setWebViewConfig(webViewConfig)
+        cmpManager.setUrlConfig(config.toUrlConfig())
+        cmpManager.setWebViewConfig(config.toConsentLayerUIConfig())
     }
     
     func initialize(from viewController: UIViewController, completion: @escaping (Bool) -> Void) {
@@ -45,7 +35,9 @@ class ConsentManager: NSObject, CMPManagerDelegate {
         CMPManager.shared.setPresentingViewController(viewController)
         CMPManager.shared.checkAndOpen { [weak self] error in
             if let error = error {
+                #if DEBUG
                 print("DemoApp: Error initializing consent: \(error)")
+                #endif
                 self?.completionHandler?(false)
             }
         }
@@ -54,11 +46,15 @@ class ConsentManager: NSObject, CMPManagerDelegate {
     // MARK: - CMPManagerDelegate
     
     func didReceiveConsent(consent: String, jsonObject: [String : Any]) {
+        #if DEBUG
         print("DemoApp: Consent received: \(consent)")
+        #endif
     }
     
     func didShowConsentLayer() {
+        #if DEBUG
         print("DemoApp: Consent layer shown")
+        #endif
     }
     
     func didCloseConsentLayer() {
@@ -67,11 +63,15 @@ class ConsentManager: NSObject, CMPManagerDelegate {
     }
     
     func didReceiveError(error: String) {
+        #if DEBUG
         print("DemoApp: Error received \(error)")
+        #endif
         completionHandler?(false)
     }
 
     func didChangeATTStatus(oldStatus: Int, newStatus: Int, lastUpdated: Date?) {
+        #if DEBUG
         print("DemoApp: ATT Status changed.")
+        #endif
     }
 }
